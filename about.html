@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MakeUp by Vanshika</title>
+    <link rel="stylesheet" href="nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nude: #fdf2f6;
+            --rose-gold: #d188a1;
+            --mauve: #ac7088;
+            --blush-pink: #f9d4e0;
+            --white: #ffffff;
+            --black: #222222;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            position: absolute;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(253, 242, 246, 0.353);
+        }
+
+        body {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .values-carousel-container {
+            max-width: 800px;
+            margin: 50px auto;
+            margin-top: 100px;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(172, 112, 136, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .values-carousel-container h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.2em;
+            background: linear-gradient(45deg, var(--rose-gold), var(--mauve));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .values-carousel {
+            background-color: var(--white);
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(172, 112, 136, 0.15);
+            position: relative;
+            min-height: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .values-carousel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(172, 112, 136, 0.2);
+        }
+
+        .value-slide {
+            display: none;
+            animation: fadeEffect 1.2s ease-in-out;
+            padding: 20px;
+        }
+
+        .value-slide h3 {
+            color: var(--mauve);
+            font-size: 2em;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .value-slide h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--rose-gold), var(--mauve));
+            border-radius: 2px;
+        }
+
+        .value-slide p {
+            color: var(--black);
+            font-size: 1.2em;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--rose-gold);
+            color: var(--white);
+            border: none;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 22px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(172, 112, 136, 0.2);
+            opacity: 0.8;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--mauve);
+            transform: translateY(-50%) scale(1.1);
+            opacity: 1;
+            box-shadow: 0 6px 20px rgba(172, 112, 136, 0.3);
+        }
+
+        .prev {
+            left: -22px;
+        }
+
+        .next {
+            right: -22px;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="myVideo">
+            <source src="assets/banner.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <a href="home.html">MakeUp by Vanshika</a>
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="booking.html">Book an Appointment</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="blogs.html">Blogs</a>
+        </div>
+    </nav>
+
+    <!-- Add your about page content here -->
+    <div class="values-carousel-container">
+        <h2>Our Values</h2>
+        <div class="values-carousel">
+            <div class="value-slide">
+                <h3>Quality First</h3>
+                <p>We never compromise on the quality of our services and products.</p>
+            </div>
+            <div class="value-slide">
+                <h3>Client Comfort</h3>
+                <p>Your comfort and satisfaction are our top priorities.</p>
+            </div>
+            <div class="value-slide">
+                <h3>Skin-Safe Products</h3>
+                <p>We use only dermatologically tested and safe products.</p>
+            </div>
+            <div class="value-slide">
+                <h3>Timely Service</h3>
+                <p>We value your time and ensure punctual service delivery.</p>
+            </div>
+        </div>
+        <button class="carousel-btn prev">❮</button>
+        <button class="carousel-btn next">❯</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.value-slide');
+            const totalSlides = slides.length;
+
+            function showSlide(n) {
+                slides.forEach(slide => slide.style.display = 'none');
+                currentSlide = (n + totalSlides) % totalSlides;
+                slides[currentSlide].style.display = 'block';
+            }
+
+            document.querySelector('.next').addEventListener('click', () => showSlide(currentSlide + 1));
+            document.querySelector('.prev').addEventListener('click', () => showSlide(currentSlide - 1));
+
+            // Show first slide initially
+            showSlide(0);
+
+            // Auto-advance slides every 5 seconds
+            setInterval(() => showSlide(currentSlide + 1), 5000);
+        });
+    </script>
+
+    <!-- Personal Letter Section -->
+    <div class="personal-letter">
+        <h2>In Her Words</h2>
+        <div class="letter-content">
+            <p>Dear Beauty Enthusiast,</p>
+            <p>I started this journey with just a brush and a dream. Growing up, makeup wasn't just about creating beautiful looks—it was about discovering how a simple stroke of color could transform not just someone's appearance, but their confidence.</p>
+            <p>What began in my tiny bedroom mirror has blossomed into a beautiful journey of helping countless individuals feel their absolute best. Each client who sits in my chair isn't just another appointment; they're a new story, a new dream, and a new opportunity to create magic.</p>
+            <p>Today, alongside my amazing team, we continue this journey with the same passion and dedication that started it all. We believe in enhancing your natural beauty while ensuring you feel comfortable and confident in your own skin.</p>
+            <p>Thank you for being part of this beautiful journey.</p>
+            <p>With love and sparkle,</p>
+            <div class="signature">
+                <img src="assets/photo1.jpg" alt="Vanshika" class="signature-photo">
+                <span>Vanshika</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team-container">
+        <h2>Meet Our Artists</h2>
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="assets/photo1.jpg" alt="Team Member">
+                        <div class="overlay-text">Hover to know more</div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Vanshika</h3>
+                        <p class="specialty">Lead Makeup Artist</p>
+                        <p class="fun-fact">"Makeup is art, beauty is spirit"</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="assets/photo2.jpg" alt="Team Member">
+                        <div class="overlay-text">Hover to know more</div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Priya</h3>
+                        <p class="specialty">Hair Styling Expert</p>
+                        <p class="fun-fact">"Your hair is your crown - wear it proudly!"</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="assets/photo3.jpeg" alt="Team Member">
+                        <div class="overlay-text">Hover to know more</div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Anjali</h3>
+                        <p class="specialty">Brow & Lash Expert</p>
+                        <p class="fun-fact">"Eyes are windows to the soul, I just make the frames prettier!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Professional makeup artistry services for all your special moments. Making you look and feel beautiful since 2020.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Portfolio</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
+                    <li><i class="fas fa-envelope"></i> info@makeupbyvanshika.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra, India</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe for beauty tips and exclusive offers!</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 MakeUp by Vanshika. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .team-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(172, 112, 136, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .team-container h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.2em;
+            background: linear-gradient(45deg, var(--rose-gold), var(--mauve));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .team-card {
+            perspective: 1000px;
+            height: 400px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .team-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(172, 112, 136, 0.15);
+        }
+
+        .card-front {
+            background: var(--white);
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: var(--mauve);
+            font-size: 0.9em;
+            transition: opacity 0.3s;
+        }
+
+        .team-card:hover .overlay-text {
+            opacity: 0;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, var(--rose-gold), var(--mauve));
+            color: var(--white);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-back h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .specialty {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            width: 80%;
+        }
+
+        .fun-fact {
+            font-style: italic;
+            font-size: 1.1em;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .team-card {
+                height: 350px;
+            }
+        }
+
+        /* Personal Letter Styles */
+        .personal-letter {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(253, 242, 246, 0.95), rgba(249, 212, 224, 0.95));
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(172, 112, 136, 0.15);
+        }
+
+        .personal-letter h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            color: var(--mauve);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .letter-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--black);
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .signature-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--rose-gold);
+        }
+
+        .signature span {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            color: var(--mauve);
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: linear-gradient(to right, #2c1810, #4a2516);
+            color: #fff;
+            padding: 4rem 0 0 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f8d3c5;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f8d3c5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #f8d3c5;
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background: #f8d3c5;
+            border: none;
+            border-radius: 4px;
+            color: #2c1810;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        // Newsletter Form Submission
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing! We\'ll keep you updated with our latest news and offers.');
+            this.reset();
+        });
+
+        // Responsive Navigation
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+            
+            // Accessibility
+            const isExpanded = navLinks.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navButton = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(e.target) && !navButton.contains(e.target)) {
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close mobile menu when window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const nav = document.querySelector('nav');
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Add background color to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

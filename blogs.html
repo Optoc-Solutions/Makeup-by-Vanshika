@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - MakeUp by Vanshika</title>
+    <link rel="stylesheet" href="nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Blog Styles */
+        .blog-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .season-section {
+            margin-bottom: 60px;
+        }
+
+        .season-title {
+            color: #2c1810;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Great Vibes', cursive;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-image {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .blog-title {
+            color: #2c1810;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2c1810;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .read-more:hover {
+            background: #4a2516;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f8d3c5;
+            color: #2c1810;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .season-title {
+                font-size: 2em;
+            }
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: linear-gradient(to right, #2c1810, #4a2516);
+            color: #fff;
+            padding: 4rem 0 0 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f8d3c5;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f8d3c5;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            flex-grow: 1;
+        }
+
+        .newsletter-form button {
+            background: #f8d3c5;
+            color: #2c1810;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #f0b5a3;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #f8d3c5;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="home.html">MakeUp by Vanshika</a>
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="booking.html">Book an Appointment</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="blogs.html">Blogs</a>
+        </div>
+    </nav>
+
+    <div class="banner-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; overflow: hidden;">
+        <video autoplay muted loop class="banner-video" style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="assets/banner.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div style="position: relative; z-index: 1;">
+        <div class="blog-container">
+            <!-- Summer 2025 Section -->
+            <div class="season-section">
+                <h2 class="season-title">✨ Summer 2025 Trends</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <img src="assets/photo1.jpg" alt="Summer Glow Makeup" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-date">July 15, 2025</div>
+                            <div class="tags">
+                                <span class="tag">Summer</span>
+                                <span class="tag">Glowing Skin</span>
+                            </div>
+                            <h3 class="blog-title">Achieve the Perfect Summer Glow</h3>
+                            <p class="blog-excerpt">Discover the secrets to achieving that perfect dewy, summer glow. From skincare prep to the final setting spray...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <img src="assets/photo2.jpg" alt="Beach Wedding Makeup" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-date">July 20, 2025</div>
+                            <div class="tags">
+                                <span class="tag">Bridal</span>
+                                <span class="tag">Summer</span>
+                            </div>
+                            <h3 class="blog-title">Beach Wedding Makeup Guide</h3>
+                            <p class="blog-excerpt">Everything you need to know about creating a waterproof, long-lasting makeup look for beach weddings...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Festive Season Section -->
+            <div class="season-section">
+                <h2 class="season-title">✨ Diwali Special Looks</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <img src="assets/photo3.jpeg" alt="Traditional Diwali Makeup" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-date">Coming Soon</div>
+                            <div class="tags">
+                                <span class="tag">Festive</span>
+                                <span class="tag">Traditional</span>
+                            </div>
+                            <h3 class="blog-title">Traditional Diwali Glam</h3>
+                            <p class="blog-excerpt">Create a stunning traditional look that combines classic elements with modern techniques...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <img src="assets/PHOTO4.jpg" alt="Modern Festive Look" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-date">Coming Soon</div>
+                            <div class="tags">
+                                <span class="tag">Festive</span>
+                                <span class="tag">Modern</span>
+                            </div>
+                            <h3 class="blog-title">Modern Twist on Festive Makeup</h3>
+                            <p class="blog-excerpt">Contemporary makeup techniques to enhance your traditional festive attire...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Winter Section -->
+            <div class="season-section">
+                <h2 class="season-title">✨ Winter Skin Care & Makeup</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <img src="assets/PHOTO5.jpg" alt="Winter Skincare" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-date">Coming Soon</div>
+                            <div class="tags">
+                                <span class="tag">Winter</span>
+                                <span class="tag">Skincare</span>
+                            </div>
+                            <h3 class="blog-title">Winter Skin Care Routine</h3>
+                            <p class="blog-excerpt">Essential tips and products to keep your skin hydrated and glowing during the winter months...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <img src="assets/PHOTO6.jpg" alt="Winter Makeup" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-date">Coming Soon</div>
+                            <div class="tags">
+                                <span class="tag">Winter</span>
+                                <span class="tag">Makeup</span>
+                            </div>
+                            <h3 class="blog-title">Frost-Inspired Winter Looks</h3>
+                            <p class="blog-excerpt">Create stunning winter makeup looks inspired by the season's frosty beauty...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Makeup by Vanshika is your premier destination for professional makeup artistry. We specialize in bridal, party, and special occasion makeup, ensuring you look and feel your best.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Book Appointment</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Makeup Street, Beauty City</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> info@makeupbyvanshika.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for the latest updates and exclusive offers!</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Newsletter Form Submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    alert('Thank you for subscribing! We\'ll keep you updated with our latest news and offers.');
+                    this.reset();
+                });
+            }
+        });
+
+        // Responsive Navigation
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+            
+            // Accessibility
+            const isExpanded = navLinks.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navButton = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(e.target) && !navButton.contains(e.target)) {
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close mobile menu when window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const nav = document.querySelector('nav');
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Add background color to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+
+    </script>
+</body>
+</html>

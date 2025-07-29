@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakeUp by Vanshika</title>
+    <link rel="stylesheet" href="nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="home.html">MakeUp by Vanshika</a>
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="booking.html">Book an Appointment</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="blogs.html">Blogs</a>
+        </div>
+    </nav>
+    
+    <div class="banner-container">
+        <video autoplay muted loop class="banner-video">
+            <source src="assets/banner.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="banner-overlay">
+            <h1>Transform Your Beauty</h1>
+            <p>Professional Makeup Artistry for Every Occasion</p>
+        </div>
+    </div>
+
+    <section class="split-view">
+        <div class="split-left">
+            <video autoplay muted loop class="intro-video">
+                <source src="assets/video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="split-right">
+            <div class="featured-service">
+                <h2>Bridal Look of the Month</h2>
+                <img src="assets/photo1.jpg" alt="Bridal Makeup Look">
+                <p>Experience our signature bridal transformation</p>
+                <a href="booking.html" class="book-now-btn">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="instagram-grid-hero">
+        <div class="grid-container">
+            <div class="grid-item"><img src="assets/PHOTO4.jpg" alt="Makeup Transformation"></div>
+            <div class="grid-item"><img src="assets/PHOTO5.jpg" alt="Makeup Transformation"></div>
+            <div class="grid-item"><img src="assets/PHOTO6.jpg" alt="Makeup Transformation"></div>
+            <div class="grid-item"><img src="assets/PHOTO7.jpg" alt="Makeup Transformation"></div>
+            <div class="grid-item"><img src="assets/PHOTO8.jpg" alt="Makeup Transformation"></div>
+            <div class="grid-item"><img src="assets/PHOTO9.jpg" alt="Makeup Transformation"></div>
+        </div>
+        <div class="grid-overlay">
+            <h2>Trusted by Hundreds, Loved by All</h2>
+            <a href="https://instagram.com/your-instagram-handle" class="instagram-cta" target="_blank">Follow & Book on Instagram</a>
+        </div>
+    </section>
+
+    <section class="before-after-section">
+        <div class="before-after-grid">
+            <div class="comparison-slider">
+                <figure class="before-after-container">
+                    <img class="before-image" src="assets/bridal.jpg" alt="Before Makeup">
+                    <img class="after-image" src="assets/bridalafter.jpg" alt="After Makeup">
+                    <div class="slider-handle"></div>
+                </figure>
+            </div>
+            <div class="before-after-content">
+                <h2>See the Difference. Feel the Confidence.</h2>
+                <p>Experience the magic of professional makeup artistry that transforms not just your look, but your confidence. Our expert techniques and premium products ensure you look and feel your absolute best.</p>
+                <ul class="transformation-benefits">
+                    <li>✨ Professional Grade Products</li>
+                    <li>🎨 Customized Look for Every Face</li>
+                    <li>⭐ Long-lasting Results</li>
+                    <li>💫 Camera-ready Finish</li>
+                </ul>
+                <a href="booking.html" class="transform-cta">Book Your Transformation</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .before-after-section {
+            padding: 4rem 0;
+            background: #f8f8f8;
+        }
+
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            align-items: center;
+        }
+
+        .before-after-content {
+            text-align: left;
+        }
+
+        .before-after-content h2 {
+            margin-bottom: 1.5rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .before-after-content p {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .transformation-benefits {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .transformation-benefits li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .transform-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #2c1810;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .transform-cta:hover {
+            background: #4a2516;
+        }
+
+        .comparison-slider {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .before-after-container {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .before-image,
+        .after-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .after-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .before-after-container {
+            position: relative;
+            cursor: col-resize;
+        }
+
+        .slider-handle {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #fff;
+            cursor: col-resize;
+            transform: translateX(-50%);
+        }
+
+        .slider-handle::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.before-after-container');
+            const handle = document.querySelector('.slider-handle');
+            const afterImage = document.querySelector('.after-image');
+            let isResizing = false;
+
+            container.addEventListener('mousedown', startResizing);
+            document.addEventListener('mousemove', resize);
+            document.addEventListener('mouseup', stopResizing);
+
+            // Touch events
+            container.addEventListener('touchstart', startResizing);
+            document.addEventListener('touchmove', resize);
+            document.addEventListener('touchend', stopResizing);
+
+            function startResizing(e) {
+                isResizing = true;
+            }
+
+            function stopResizing(e) {
+                isResizing = false;
+            }
+
+            function resize(e) {
+                if (!isResizing) return;
+
+                const containerRect = container.getBoundingClientRect();
+                let x = (e.type === 'mousemove') ? e.pageX : e.touches[0].pageX;
+                let position = (x - containerRect.left) / containerRect.width;
+
+                position = Math.max(0, Math.min(1, position));
+                
+                handle.style.left = position * 100 + '%';
+                afterImage.style.width = position * 100 + '%';
+            }
+        });
+    </script>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Professional makeup artistry services for all your special moments. Making you look and feel beautiful since 2020.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Portfolio</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
+                    <li><i class="fas fa-envelope"></i> info@makeupbyvanshika.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra, India</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe for beauty tips and exclusive offers!</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 MakeUp by Vanshika. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        /* Footer Styles */
+        .site-footer {
+            background: linear-gradient(to right, #2c1810, #4a2516);
+            color: #fff;
+            padding: 4rem 0 0 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f8d3c5;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f8d3c5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #f8d3c5;
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background: #f8d3c5;
+            border: none;
+            border-radius: 4px;
+            color: #2c1810;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        // Newsletter Form Submission
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing! We\'ll keep you updated with our latest news and offers.');
+            this.reset();
+        });
+
+        // Responsive Navigation
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+            
+            // Accessibility
+            const isExpanded = navLinks.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navButton = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(e.target) && !navButton.contains(e.target)) {
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close mobile menu when window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const nav = document.querySelector('nav');
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Add background color to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

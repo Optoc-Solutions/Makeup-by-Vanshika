@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment - MakeUp by Vanshika</title>
+    <link rel="stylesheet" href="nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="home.html">MakeUp by Vanshika</a>
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="booking.html">Book an Appointment</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="blogs.html">Blogs</a>
+        </div>
+    </nav>
+
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="assets/banner.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-overlay"></div>
+
+    <div class="page-heading">
+        <h1>Book Your Appointment</h1>
+        <p>Let us make your special day even more beautiful</p>
+    </div>
+
+    <style>
+        .page-heading {
+            text-align: center;
+            margin: 40px auto;
+            color: #2c1810;
+            position: relative;
+            z-index: 1;
+            margin-top: 100px;
+        }
+
+        .page-heading h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-heading p {
+            font-size: 1.2rem;
+            color: #4a2516;
+            font-family: Arial, sans-serif;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.373);
+            z-index: -1;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-top: 100px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .chat-message {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .bot-message {
+            background-color: #f0f0f0;
+            padding: 15px 20px;
+            border-radius: 20px;
+            border-top-left-radius: 5px;
+            max-width: 80%;
+            margin-right: auto;
+            animation-delay: 0.5s;
+        }
+        .user-response {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .option-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .option-button:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+        .date-picker {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .hidden {
+            display: none;
+        }
+        .contact-input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        textarea.contact-input {
+            height: 100px;
+            resize: vertical;
+        }
+        .booking-summary {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .booking-summary p {
+            margin: 8px 0;
+        }
+    </style>
+
+    <div class="chat-container">
+        <div class="chat-message">
+            <div class="bot-message">
+                Hi! 👋 What service are you looking for today?
+            </div>
+            <div class="user-response">
+                <button class="option-button service-btn">Bridal Makeup</button>
+                <button class="option-button service-btn">Party Makeup</button>
+                <button class="option-button service-btn">Engagement Makeup</button>
+                <button class="option-button service-btn">Professional Photoshoot</button>
+            </div>
+        </div>
+
+        <div class="chat-message hidden" id="dateSelection">
+            <div class="bot-message">
+                Great! Pick a date for your appointment:
+            </div>
+            <div class="user-response">
+                <input type="date" class="date-picker" min="" required>
+            </div>
+        </div>
+
+        <div class="chat-message hidden" id="timeSelection">
+            <div class="bot-message">
+                What time works best for you?
+            </div>
+            <div class="user-response">
+                <button class="option-button time-btn">9:00 AM</button>
+                <button class="option-button time-btn">11:00 AM</button>
+                <button class="option-button time-btn">2:00 PM</button>
+                <button class="option-button time-btn">4:00 PM</button>
+            </div>
+        </div>
+
+        <div class="chat-message hidden" id="contactInfo">
+            <div class="bot-message">
+                Perfect! Please share your contact details:
+            </div>
+            <div class="user-response">
+                <input type="text" placeholder="Your Name" class="contact-input" id="name" required>
+                <input type="tel" placeholder="Phone Number" class="contact-input" id="phone" required>
+                <input type="email" placeholder="Email Address" class="contact-input" id="email" required>
+                <textarea placeholder="Any special requests?" class="contact-input" id="notes"></textarea>
+                <button class="option-button submit-btn">Confirm Booking</button>
+            </div>
+        </div>
+
+        <div class="chat-message hidden" id="confirmation">
+            <div class="bot-message">
+                Thanks! 🎉 Your appointment is confirmed. Here's a summary:
+                <div class="booking-summary"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Responsive Navigation
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+            
+            // Accessibility
+            const isExpanded = navLinks.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navButton = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(e.target) && !navButton.contains(e.target)) {
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close mobile menu when window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const nav = document.querySelector('nav');
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Add background color to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelector('.date-picker').min = today;
+
+        // Booking data object
+        let bookingData = {
+            service: '',
+            date: '',
+            time: '',
+            name: '',
+            phone: '',
+            email: '',
+            notes: ''
+        };
+
+        // Handle service selection
+        document.querySelectorAll('.service-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                bookingData.service = this.textContent;
+                document.getElementById('dateSelection').classList.remove('hidden');
+                document.querySelectorAll('.service-btn').forEach(btn => btn.disabled = true);
+                this.style.backgroundColor = '#ff1493';
+            });
+        });
+
+        // Handle date selection
+        document.querySelector('.date-picker').addEventListener('change', function() {
+            bookingData.date = this.value;
+            document.getElementById('timeSelection').classList.remove('hidden');
+        });
+
+        // Handle time selection
+        document.querySelectorAll('.time-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                bookingData.time = this.textContent;
+                document.getElementById('contactInfo').classList.remove('hidden');
+                document.querySelectorAll('.time-btn').forEach(btn => btn.disabled = true);
+                this.style.backgroundColor = '#ff1493';
+            });
+        });
+
+        // Handle form submission
+        document.querySelector('.submit-btn').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const notes = document.getElementById('notes').value;
+
+            if (!name || !phone || !email) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            bookingData.name = name;
+            bookingData.phone = phone;
+            bookingData.email = email;
+            bookingData.notes = notes;
+
+            // Show confirmation
+            const summary = document.querySelector('.booking-summary');
+            summary.innerHTML = `
+                <p><strong>Service:</strong> ${bookingData.service}</p>
+                <p><strong>Date:</strong> ${bookingData.date}</p>
+                <p><strong>Time:</strong> ${bookingData.time}</p>
+                <p><strong>Name:</strong> ${bookingData.name}</p>
+                <p><strong>Phone:</strong> ${bookingData.phone}</p>
+                <p><strong>Email:</strong> ${bookingData.email}</p>
+                ${bookingData.notes ? `<p><strong>Notes:</strong> ${bookingData.notes}</p>` : ''}
+            `;
+
+            document.getElementById('confirmation').classList.remove('hidden');
+            this.disabled = true;
+        });
+    </script>
+
+    <style>
+        .site-footer {
+            background: linear-gradient(to right, #2c1810, #4a2516);
+            color: #fff;
+            padding: 4rem 0 0 0;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f8d3c5;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f8d3c5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #f8d3c5;
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background: #f8d3c5;
+            border: none;
+            border-radius: 4px;
+            color: #2c1810;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Professional makeup services for all occasions. Making you look and feel beautiful is our passion.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Book Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> info@makeupbyvanshika.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Delhi, India</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe for beauty tips and special offers!</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Makeup by Vanshika. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        // Newsletter Form Submission
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing! We\'ll keep you updated with our latest news and offers.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MakeUp by Vanshika</title>
+    <link rel="stylesheet" href="nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-carousel {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-card.phone {
+            border-top: 5px solid #FF6B6B;
+        }
+
+        .contact-card.whatsapp {
+            border-top: 5px solid #25D366;
+        }
+
+        .contact-card.email {
+            border-top: 5px solid #4A90E2;
+        }
+
+        .contact-card.location {
+            border-top: 5px solid #B8A4FF;
+        }
+
+        .contact-card i {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            margin: 15px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .contact-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .phone .contact-btn {
+            background: #FF6B6B;
+        }
+
+        .whatsapp .contact-btn {
+            background: #25D366;
+        }
+
+        .email .contact-btn {
+            background: #4A90E2;
+        }
+
+        .location .contact-btn {
+            background: #B8A4FF;
+        }
+
+        .contact-btn:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .contact-carousel {
+                padding: 10px;
+            }
+            .contact-card {
+                width: calc(50% - 20px);
+                min-width: 250px;
+            }
+        }
+
+        /* Callback Form Styles */
+        .callback-section {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .callback-section h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .callback-section p {
+            color: #666;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .callback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #4A90E2;
+            outline: none;
+        }
+
+        .submit-btn {
+            background: #4A90E2;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #357ABD;
+        }
+
+        @media (max-width: 768px) {
+            .callback-section {
+                margin: 30px 15px;
+                padding: 20px;
+            }
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: linear-gradient(to right, #2c1810, #4a2516);
+            color: #fff;
+            padding: 4rem 0 0 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f8d3c5;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f8d3c5;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            flex-grow: 1;
+        }
+
+        .newsletter-form button {
+            background: #f8d3c5;
+            color: #2c1810;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #f0b5a3;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #f8d3c5;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="home.html">MakeUp by Vanshika</a>
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="booking.html">Book an Appointment</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="blogs.html">Blogs</a>
+        </div>
+    </nav>
+
+    <div class="banner-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; overflow: hidden;">
+        <video autoplay muted loop class="banner-video" style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="assets/banner.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div style="margin-top: 100px ;position: relative; z-index: 1;">
+        <div class="contact-carousel">
+            <!-- Phone Card -->
+            <div class="contact-card phone">
+                <i class="fas fa-phone" style="color: #FF6B6B;"></i>
+                <h3>Call Us</h3>
+                <p>Available Mon-Sat<br>9:00 AM - 7:00 PM</p>
+                <a href="tel:+1234567890" class="contact-btn">Call Now</a>
+            </div>
+
+            <!-- WhatsApp Card -->
+            <div class="contact-card whatsapp">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                <h3>WhatsApp Chat</h3>
+                <p>Quick responses<br>Direct messaging</p>
+                <a href="https://wa.me/1234567890" class="contact-btn">Chat Now</a>
+            </div>
+
+            <!-- Email Card -->
+            <div class="contact-card email">
+                <i class="fas fa-envelope" style="color: #4A90E2;"></i>
+                <h3>Email Inquiry</h3>
+                <p>Detailed inquiries<br>Business collaborations</p>
+                <a href="mailto:info@makeupbyvanshika.com" class="contact-btn">Send Email</a>
+            </div>
+
+            <!-- Location Card -->
+            <div class="contact-card location">
+                <i class="fas fa-map-marker-alt" style="color: #B8A4FF;"></i>
+                <h3>Visit Studio</h3>
+                <p>Book an in-person<br>consultation</p>
+                <a href="https://maps.google.com" target="_blank" class="contact-btn">Get Directions</a>
+            </div>
+        </div>
+
+        <!-- Schedule a Callback Section -->
+        <div class="callback-section">
+            <h2>📅 Schedule a Callback</h2>
+            <p>Let us know your preferred time, and we'll call you back!</p>
+            
+            <form class="callback-form" onsubmit="return false;" id="callbackForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date" required min="">
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Preferred Time</label>
+                    <select id="time" name="time" required>
+                        <option value="">Select a time slot</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="14:00">02:00 PM</option>
+                        <option value="15:00">03:00 PM</option>
+                        <option value="16:00">04:00 PM</option>
+                        <option value="17:00">05:00 PM</option>
+                        <option value="18:00">06:00 PM</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="query">Your Query</label>
+                    <textarea id="query" name="query" rows="4" required placeholder="Tell us about your requirements or questions"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Schedule Callback</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        // Responsive Navigation
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+            
+            // Accessibility
+            const isExpanded = navLinks.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navButton = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(e.target) && !navButton.contains(e.target)) {
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close mobile menu when window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const nav = document.querySelector('nav');
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Add background color to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+
+        // Set minimum date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').min = today;
+        });
+
+        // Form submission handling
+        document.getElementById('callbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            alert('Thank you! We will call you back at your preferred time.');
+            this.reset();
+        });
+
+        // Newsletter Form Submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    alert('Thank you for subscribing! We\'ll keep you updated with our latest news and offers.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Makeup by Vanshika is your premier destination for professional makeup artistry. We specialize in bridal, party, and special occasion makeup, ensuring you look and feel your best.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Book Appointment</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Makeup Street, Beauty City</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> info@makeupbyvanshika.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for the latest updates and exclusive offers!</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

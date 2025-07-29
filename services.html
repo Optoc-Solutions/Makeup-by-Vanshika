@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakeUp by Vanshika</title>
+    <link rel="stylesheet" href="nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        body {
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        .page-title {
+            margin-top: 100px;
+            text-align: center;
+            padding: 2rem 0 1rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .service-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            aspect-ratio: 4/5;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+        .service-card:hover img {
+            filter: brightness(0.7);
+        }
+        .service-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover .service-info {
+            transform: translateY(0);
+        }
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .service-price {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .service-duration {
+            color: #ffffff80;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="assets/banner.mp4" type="video/mp4">
+        </video>
+    </div>
+    <nav>
+        <div class="logo">
+            <a href="home.html">MakeUp by Vanshika</a>
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="booking.html">Book an Appointment</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="blogs.html">Blogs</a>
+        </div>
+    </nav>
+    
+    <h1 class="page-title">Our Packages & Rates</h1>
+    <div class="services-container">
+        <!-- Bridal Makeup Card -->
+        <div class="service-card" onclick="location.href='services/bridal.html'">
+            <img src="assets/PHOTO9.jpg" alt="Bridal Makeup">
+            <div class="service-info">
+                <h3 class="service-title">Bridal Makeup</h3>
+                <p class="service-price">Starts at ₹7,000</p>
+                <p class="service-duration">Duration: 3 hrs</p>
+            </div>
+        </div>
+
+        <!-- Party Makeup Card -->
+        <div class="service-card" onclick="location.href='services/party.html'">
+            <img src="assets/PHOTO8.jpg" alt="Party Makeup">
+            <div class="service-info">
+                <h3 class="service-title">Party Makeup</h3>
+                <p class="service-price">Starts at ₹3,000</p>
+                <p class="service-duration">Duration: 1.5 hrs</p>
+            </div>
+        </div>
+
+        <!-- HD Makeup Card -->
+        <div class="service-card" onclick="location.href='services/hd.html'">
+            <img src="assets/PHOTO7.jpg" alt="HD Makeup">
+            <div class="service-info">
+                <h3 class="service-title">HD Makeup</h3>
+                <p class="service-price">Starts at ₹4,000</p>
+                <p class="service-duration">Duration: 2 hrs</p>
+            </div>
+        </div>
+
+        <!-- Engagement Makeup Card -->
+        <div class="service-card" onclick="location.href='services/engagement.html'">
+            <img src="assets/PHOTO6.jpg" alt="Engagement Makeup">
+            <div class="service-info">
+                <h3 class="service-title">Engagement Makeup</h3>
+                <p class="service-price">Starts at ₹5,000</p>
+                <p class="service-duration">Duration: 2.5 hrs</p>
+            </div>
+        </div>
+
+        <!-- Pre-wedding Makeup Card -->
+        <div class="service-card" onclick="location.href='services/pre-wedding.html'">
+            <img src="assets/PHOTO5.jpg" alt="Pre-wedding Makeup">
+            <div class="service-info">
+                <h3 class="service-title">Pre-wedding Makeup</h3>
+                <p class="service-price">Starts at ₹6,000</p>
+                <p class="service-duration">Duration: 2.5 hrs</p>
+            </div>
+        </div>
+
+        <!-- Air Brush Makeup Card -->
+        <div class="service-card" onclick="location.href='services/airbrush.html'">
+            <img src="assets/PHOTO4.jpg" alt="Air Brush Makeup">
+            <div class="service-info">
+                <h3 class="service-title">Air Brush Makeup</h3>
+                <p class="service-price">Starts at ₹8,000</p>
+                <p class="service-duration">Duration: 3 hrs</p>
+            </div>
+        </div>
+
+        <!-- Light Makeup Card -->
+        <div class="service-card" onclick="location.href='services/light.html'">
+            <img src="assets/PHOTO2.jpg" alt="Light Makeup">
+            <div class="service-info">
+                <h3 class="service-title">Light Makeup</h3>
+                <p class="service-price">Starts at ₹2,000</p>
+                <p class="service-duration">Duration: 1 hr</p>
+            </div>
+        </div>
+
+        <!-- Special Event Makeup Card -->
+        <div class="service-card" onclick="location.href='services/special-event.html'">
+            <img src="assets/PHOTO3.jpeg" alt="Special Event Makeup">
+            <div class="service-info">
+                <h3 class="service-title">Special Event Makeup</h3>
+                <p class="service-price">Starts at ₹4,500</p>
+                <p class="service-duration">Duration: 2 hrs</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Package Showcase Slider -->
+    <h2 class="page-title">Special Packages</h2>
+    <div class="package-slider">
+        <!-- Wedding Glow Combo -->
+        <div class="package-slide">
+            <div class="package-content">
+                <img src="assets/photo1.jpg" alt="Wedding Glow Package">
+                <div class="package-info">
+                    <h3>Wedding Glow Combo</h3>
+                    <p class="package-price">₹15,000</p>
+                    <div class="package-includes">
+                        <h4>What's Included:</h4>
+                        <ul>
+                            <li>✨ Bridal Makeup</li>
+                            <li>✨ Pre-wedding Photoshoot Makeup</li>
+                            <li>✨ Engagement Ceremony Makeup</li>
+                            <li>✨ Skin Consultation</li>
+                            <li>✨ Touch-up Kit</li>
+                        </ul>
+                    </div>
+                    <button class="book-package" onclick="location.href='booking.html'">Book This Package</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pre-Wedding Glam Pack -->
+        <div class="package-slide">
+            <div class="package-content">
+                <img src="assets/bridalafter.jpg" alt="Pre-Wedding Glam Package">
+                <div class="package-info">
+                    <h3>Pre-Wedding Glam Pack</h3>
+                    <p class="package-price">₹9,500</p>
+                    <div class="package-includes">
+                        <h4>What's Included:</h4>
+                        <ul>
+                            <li>✨ Pre-wedding Makeup</li>
+                            <li>✨ Engagement Makeup</li>
+                            <li>✨ Trial Session</li>
+                            <li>✨ Skin Care Guide</li>
+                        </ul>
+                    </div>
+                    <button class="book-package" onclick="location.href='booking.html'">Book This Package</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .package-slider {
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            overflow-x: auto;
+            display: flex;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .package-slide {
+            min-width: 100%;
+            scroll-snap-align: start;
+        }
+
+        .package-content {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            max-height: 500px;
+        }
+
+        .package-content img {
+            width: 50%;
+            object-fit: cover;
+        }
+
+        .package-info {
+            width: 50%;
+            padding: 2rem;
+            color: white;
+        }
+
+        .package-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-includes h4 {
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .package-includes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .package-includes li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .book-package {
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #ffd700;
+            border: none;
+            border-radius: 25px;
+            color: black;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .book-package:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .package-content {
+                flex-direction: column;
+                max-height: none;
+            }
+
+            .package-content img,
+            .package-info {
+                width: 100%;
+            }
+
+            .price-table {
+                margin: 1rem;
+            }
+
+            .price-table th, 
+            .price-table td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Price Comparison Table Styles */
+        .price-table-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .price-table th {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: left;
+            padding: 1rem 1.5rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .price-table td {
+            color: white;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .price {
+            color: #ffd700;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- Price Comparison Table -->
+    <div class="price-table-container">
+        <h2 class="page-title">Service Price List</h2>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Duration</th>
+                    <th>Starting Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bridal Makeup</td>
+                    <td>3-4 hours</td>
+                    <td class="price">₹7,000</td>
+                </tr>
+                <tr>
+                    <td>Party Look</td>
+                    <td>1.5 hours</td>
+                    <td class="price">₹2,000</td>
+                </tr>
+                <tr>
+                    <td>Hairstyling Only</td>
+                    <td>1 hour</td>
+                    <td class="price">₹800</td>
+                </tr>
+                <tr>
+                    <td>HD Makeup</td>
+                    <td>2 hours</td>
+                    <td class="price">₹4,000</td>
+                </tr>
+                <tr>
+                    <td>Air Brush Makeup</td>
+                    <td>3 hours</td>
+                    <td class="price">₹8,000</td>
+                </tr>
+                <tr>
+                    <td>Pre-wedding Makeup</td>
+                    <td>2.5 hours</td>
+                    <td class="price">₹6,000</td>
+                </tr>
+                <tr>
+                    <td>Engagement Makeup</td>
+                    <td>2.5 hours</td>
+                    <td class="price">₹5,000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Professional makeup artistry services for all your special moments. Making you look and feel beautiful since 2020.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Portfolio</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
+                    <li><i class="fas fa-envelope"></i> info@makeupbyvanshika.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra, India</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe for beauty tips and exclusive offers!</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 MakeUp by Vanshika. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        /* Footer Styles */
+        .site-footer {
+            background: linear-gradient(to right, #2c1810, #4a2516);
+            color: #fff;
+            padding: 4rem 0 0 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f8d3c5;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f8d3c5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #f8d3c5;
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background: #f8d3c5;
+            border: none;
+            border-radius: 4px;
+            color: #2c1810;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        // Newsletter Form Submission
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing! We\'ll keep you updated with our latest news and offers.');
+            this.reset();
+        });
+
+        // Responsive Navigation
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+            
+            // Accessibility
+            const isExpanded = navLinks.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navButton = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(e.target) && !navButton.contains(e.target)) {
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close mobile menu when window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const nav = document.querySelector('nav');
+                nav.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Add background color to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

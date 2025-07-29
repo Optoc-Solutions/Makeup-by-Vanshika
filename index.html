@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup By Vanshika</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --nude: #fdf2f6;
+            --rose-gold: #d188a1;
+            --mauve: #ac7088;
+            --blush-pink: #f9d4e0;
+            --white: #ffffff;
+            --black: #222222;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--nude);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .splash {
+            text-align: center;
+            color: var(--mauve);
+            font-size: 4em;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(172, 112, 136, 0.2);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="splash">
+        Makeup by Vanshika
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = 'home.html';
+        }, 2000);
+    </script>
+</body>
+</html>
